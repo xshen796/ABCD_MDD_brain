@@ -1,0 +1,7 @@
+"","dependent","factor","beta","std","p.corrected"
+"1","MDD","Father",0.037,0.017,"4.18e-02"
+"2","Depressive_symptoms_ever","Father",0.057,0.018,"4.72e-03"
+"40","MDD","Mother",0.042,0.016,"1.58e-02"
+"41","Depressive_symptoms_ever","Mother",0.104,0.018,"2.56e-08"
+"79","MDD","parents",0.049,0.016,"4.72e-03"
+"80","Depressive_symptoms_ever","parents",0.1,0.017,"2.56e-08"

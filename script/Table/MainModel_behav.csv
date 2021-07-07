@@ -1,0 +1,7 @@
+,,Maternal risk,,,Paternal risk,,
+,,Beta,std,PFDR,Beta,std,PFDR
+Reported by parents,MDD,0.428,0.085,5.26E-07,0.244,0.079,1.90E-03
+,Depressive symptoms,0.174,0.018,3.50E-21,0.079,0.019,7.50E-05
+Reported by children,MDD,0.226,0.103,4.68E-02,0.057,0.105,7.34E-01
+,Depresive symptoms,0.033,0.017,4.68E-02,0.006,0.017,7.34E-01
+,,,,,,,

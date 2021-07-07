@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  padding-top: 0px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 id="creating-dsm-v-mdd-severity-measure-in-abcd">Creating DSM-V MDD severity measure in ABCD</h1>
+<p>Xueyi Shen 2020-10-06</p>
+<hr />
+<h3 id="contact-and-credit">Contact and credit</h3>
+<p>X Shen (<a href="mailto:xueyi.shen@ed.ac.uk">xueyi.shen@ed.ac.uk</a>)</p>
+<hr />
+<h3 id="r-settings">R settings</h3>
+<p>Required packages:</p>
+<ul>
+<li>dplyr</li>
+<li>readr</li>
+</ul>
+<p>Extra packages for Rmarkdown:</p>
+<ul>
+<li>rmarkdown</li>
+<li>knitr</li>
+</ul>
+<p>Required inputs:</p>
+<ul>
+<li>directory where tabulated rds files are stored (e.g. ‘release2.0.1/iii.data’)</li>
+<li>a <a href="https://github.com/xshen796/ABCD_UoEPsych/raw/main/DataManagement/Phenotype/MDD_and_Depressive_symptoms/ls.questionnaires.csv">csv file</a> with all data fields needed</li>
+</ul>
+<p>ABCD data: <a href="https://nda.nih.gov/data_dictionary.html?source=ABCD%2BRelease%2B2.0&amp;submission=ALL">release 2.0.1</a></p>
+<hr />
+<h3 id="main-script-body">Main script body</h3>
+<h4 id="basic-settings-on-eddie">Basic settings (on Eddie)</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a></code></pre></div>
+<pre><code>## 
+## Attaching package: 'dplyr'
+
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(knitr)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">tab.dat.dir=<span class="st">'/exports/igmm/eddie/GenScotDepression/shen/bakup.dat/ABCDphenotype/release2.0.1/iii.data'</span></a></code></pre></div>
+<hr />
+<h4 id="merge-and-create-one-data-obj-for-analysis">Merge and create one data obj for analysis</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># merge and save the master file  ----------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">dir.var.ls=<span class="st">'../../../data/ls.questionnaires.csv'</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">ls.var=<span class="kw">read.csv</span>(dir.var.ls,<span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>,<span class="dt">sep =</span> <span class="st">'</span><span class="ch">\t</span><span class="st">'</span>,<span class="dt">quote =</span> <span class="st">''</span>)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">ls.files.tocatch=<span class="kw">paste0</span>(ls.var<span class="op">$</span>Category,<span class="st">'/'</span>,ls.var<span class="op">$</span>File.name)</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">ls.files.tocatch=<span class="kw">unique</span>(ls.files.tocatch)</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="cf">for</span> (i <span class="cf">in</span> ls.files.tocatch){</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">      tmp.file=<span class="kw">readRDS</span>(<span class="kw">paste0</span>(tab.dat.dir,<span class="st">'/'</span>,i,<span class="st">'.rds'</span>))</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">      <span class="co">## follow-up track file have duplicated IDs. Only keep the baseline data. </span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">      <span class="cf">if</span> (<span class="kw">length</span>(<span class="kw">unique</span>(tmp.file<span class="op">$</span>src_subject_id))<span class="op">&lt;</span><span class="kw">length</span>(tmp.file<span class="op">$</span>src_subject_id)){</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">            tmp.file =<span class="st"> </span>tmp.file[<span class="kw">order</span>(tmp.file<span class="op">$</span>interview_date),]</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">            tmp.file =<span class="st"> </span>tmp.file[<span class="op">!</span><span class="kw">duplicated</span>(tmp.file<span class="op">$</span>src_subject_id),]}</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">      </a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">      <span class="cf">if</span> (i<span class="op">==</span>ls.files.tocatch[<span class="dv">1</span>]){questn.dat=tmp.file}<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">                  cols.keep=<span class="op">!</span><span class="kw">grepl</span>(<span class="st">'interview_date|interview_age|sex|gender|eventname'</span>,<span class="kw">colnames</span>(tmp.file))</a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">                  tmp.file=tmp.file[,cols.keep]</a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">                  questn.dat=<span class="kw">merge</span>(questn.dat,tmp.file,<span class="dt">by=</span><span class="st">'src_subject_id'</span>,<span class="dt">all=</span>T)                  </a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">            }</a>
+<a class="sourceLine" id="cb4-19" data-line-number="19">}</a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb4-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="co"># grep('\\.x$',colnames(IM.dat))  # check if there is any duplicated colnames</span></a>
+<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="kw">rm</span>(i,tmp.file)</a>
+<a class="sourceLine" id="cb4-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb4-25" data-line-number="25">questn.dat=questn.dat[,ls.var<span class="op">$</span>Field.name]</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">targetdat=questn.dat</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">targetdat.clean=targetdat</a></code></pre></div>
+<hr />
+<h4 id="create-summary-variables-for-life-time-mdd-diagnosis">Create summary variables for life-time MDD diagnosis</h4>
+<p>Define function</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">sum_diagnosis &lt;-<span class="st"> </span><span class="cf">function</span>(x,diagnosis,dic) {</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">      tmp.dic =<span class="st"> </span>dic[<span class="kw">grep</span>(diagnosis,dic<span class="op">$</span>Description),]</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">      tmp.field =<span class="st"> </span>tmp.dic<span class="op">$</span>Field.name</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">      dat =<span class="st"> </span>x[,<span class="kw">colnames</span>(x) <span class="op">%in%</span><span class="st"> </span>tmp.field]</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">      tmp.output =<span class="st"> </span><span class="kw">rowSums</span>(dat<span class="op">==</span><span class="dv">1</span>,<span class="dt">na.rm=</span>T)</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">      tmp.output[tmp.output<span class="op">&gt;</span><span class="dv">0</span>]=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">      tmp.output[<span class="kw">rowSums</span>(<span class="op">!</span><span class="kw">is.na</span>(dat))<span class="op">==</span><span class="dv">0</span>]=<span class="ot">NA</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">      <span class="kw">return</span>(tmp.output)</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">} </a></code></pre></div>
+<p>Child report:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">mdd.diagnosis.dic =<span class="st"> </span>ls.var[ls.var<span class="op">$</span>File.name <span class="op">%in%</span><span class="st"> 'abcd_ksad501'</span>,]</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">diagnosis.dat.tomerge=</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">      </span><span class="kw">data.frame</span>(<span class="dt">src_subject_id=</span>targetdat.clean<span class="op">$</span>src_subject_id,</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">                 <span class="dt">KSADS.MDD.y=</span><span class="kw">sum_diagnosis</span>(targetdat.clean,<span class="st">'Major Depressive Disorder'</span>,mdd.diagnosis.dic))</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">targetdat.clean=<span class="kw">merge</span>(targetdat.clean,diagnosis.dat.tomerge)</a></code></pre></div>
+<p>Caregiver report:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">mdd.diagnosis.dic =<span class="st"> </span>ls.var[ls.var<span class="op">$</span>File.name <span class="op">%in%</span><span class="st"> 'abcd_ksad01'</span>,]</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">diagnosis.dat.tomerge=</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">      </span><span class="kw">data.frame</span>(<span class="dt">src_subject_id=</span>targetdat.clean<span class="op">$</span>src_subject_id,</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">                 <span class="dt">KSADS.MDD.p=</span><span class="kw">sum_diagnosis</span>(targetdat.clean,<span class="st">'Major Depressive Disorder'</span>,mdd.diagnosis.dic))</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">targetdat.clean=<span class="kw">merge</span>(targetdat.clean,diagnosis.dat.tomerge)</a></code></pre></div>
+<p>Clean up data fields used for life-time MDD diagnosis</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">targetdat.clean=<span class="kw">data.frame</span>(targetdat.clean[,<span class="op">!</span><span class="kw">grepl</span>(<span class="st">'^ksads_1_8'</span>,<span class="kw">colnames</span>(targetdat.clean))])</a></code></pre></div>
+<hr />
+<h4 id="create-measures-for-depressive-symptoms-based-on-dsm-v-criteria">Create measures for depressive symptoms based on DSM-V criteria</h4>
+<p><a href="https://www.psnpaloalto.com/wp/wp-content/uploads/2010/12/Depression-Diagnostic-Criteria-and-Severity-Rating.pdf">A helpful summary</a></p>
+<p>A summary of <a href="https://github.com/xshen796/ABCD_UoEPsych/blob/main/DataManagement/Phenotype/MDD_and_Depressive_symptoms/TableS1.DepreSymp_Items.xlsx?raw=true">MDD symptomology items in ABCD</a></p>
+<p>A summary of <a href="https://github.com/xshen796/ABCD_UoEPsych/blob/main/DataManagement/Phenotype/MDD_and_Depressive_symptoms/TableS2_DepreSymptom_Derivation.xlsx?raw=true">DSM-V criteria for deriving depressive symptoms</a></p>
+<h5 id="total-number-of-depressive-symptoms-reported">Total number of depressive symptoms reported</h5>
+<p>Prepare function</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">ls.items.Symp =<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">                    <span class="st">'Depressed Mood'</span>,</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">                    <span class="st">'Anhedonia'</span>,</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">                    <span class="st">'Fatigue'</span>,</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">                    <span class="st">'Concentration Disturbance'</span>,</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">                    <span class="st">'Decreased Self-Esteem'</span>,</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">                    <span class="st">'Guilt'</span>,</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">                    <span class="st">'Hopeless'</span>,</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">                    <span class="st">'Impairment in functioning due to depression'</span>,</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">                    <span class="st">'Indecision'</span>,</a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">                    <span class="st">'Irritability'</span>,  </a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">                     <span class="kw">c</span>(<span class="st">'Insomnia'</span>,<span class="st">'Hypersomnia'</span>),</a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">                     <span class="kw">c</span>(<span class="st">'Weight Loss'</span>,<span class="st">'Weight Gain'</span>),</a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">                     <span class="kw">c</span>(<span class="st">'Decreased Appetite'</span>,<span class="st">'Increased Appetite'</span>),</a>
+<a class="sourceLine" id="cb10-15" data-line-number="15">                     <span class="kw">c</span>(<span class="st">'Psychomotor Agitation'</span>,<span class="st">'Psychomotor Retardation'</span>),</a>
+<a class="sourceLine" id="cb10-16" data-line-number="16">                     <span class="kw">c</span>(<span class="st">'Suicid|suicid|Attempt|SelfInjur'</span>))</a>
+<a class="sourceLine" id="cb10-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb10-18" data-line-number="18">sum_diagnosis &lt;-<span class="st"> </span><span class="cf">function</span>(x,tmp.dic,ls.items.groupSymp) {</a>
+<a class="sourceLine" id="cb10-19" data-line-number="19">      tmp.field =<span class="st"> </span>tmp.dic<span class="op">$</span>Field.name</a>
+<a class="sourceLine" id="cb10-20" data-line-number="20">      dat =<span class="st"> </span>x[,<span class="kw">colnames</span>(x) <span class="op">%in%</span><span class="st"> </span>tmp.field]</a>
+<a class="sourceLine" id="cb10-21" data-line-number="21">      </a>
+<a class="sourceLine" id="cb10-22" data-line-number="22">      tmp.group.field =<span class="st"> </span><span class="kw">lapply</span>(ls.items.groupSymp,<span class="dt">FUN=</span><span class="cf">function</span>(x) tmp.dic<span class="op">$</span>Field.name[<span class="kw">grep</span>(<span class="kw">paste0</span>(x,<span class="dt">collapse=</span><span class="st">'|'</span>),tmp.dic<span class="op">$</span>Description)])</a>
+<a class="sourceLine" id="cb10-23" data-line-number="23">      tmp.group.output =<span class="st"> </span><span class="kw">lapply</span>(tmp.group.field,<span class="dt">FUN=</span><span class="cf">function</span>(x) <span class="kw">rowSums</span>(<span class="kw">data.frame</span>(dat[,x])<span class="op">==</span><span class="dv">1</span>,<span class="dt">na.rm=</span>T)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-24" data-line-number="24"><span class="st">                         </span>bind_cols </a>
+<a class="sourceLine" id="cb10-25" data-line-number="25">      tmp.group.output[tmp.group.output<span class="op">&gt;</span><span class="dv">1</span>]=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb10-26" data-line-number="26">      tmp.output=tmp.group.output <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-27" data-line-number="27"><span class="st">                         </span><span class="kw">rowSums</span>(.,<span class="dt">na.rm=</span>T)</a>
+<a class="sourceLine" id="cb10-28" data-line-number="28">      <span class="kw">return</span>(tmp.output)</a>
+<a class="sourceLine" id="cb10-29" data-line-number="29">} </a></code></pre></div>
+<p>=&gt; Child report Prepare data dictionaries</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">new.dic =<span class="st"> </span>ls.var[<span class="kw">grep</span>(<span class="st">'^Symptom -|Suicid|suicid|Attempt|SelfInjur'</span>,ls.var<span class="op">$</span>Description),] <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># Items under MDD category in ABCD (symptom) + suicidality &amp; self-injurial behaviour (diagnosis)</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">          </span>.[<span class="kw">grep</span>(<span class="st">'_ksad'</span>,.<span class="op">$</span>File.name),] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="st">          </span>.[<span class="kw">grep</span>(<span class="st">'t$'</span>,.<span class="op">$</span>Field.name),]</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">new.dic<span class="op">$</span>Description=<span class="kw">gsub</span>(<span class="st">','</span>,<span class="st">''</span>,new.dic<span class="op">$</span>Description)</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">new.dic.ever =<span class="st"> </span>new.dic[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">'^Symptom - No two month symptom'</span>,new.dic<span class="op">$</span>Description),]</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">new.dic.current =<span class="st"> </span>new.dic.ever[<span class="kw">grep</span>(<span class="st">'Present'</span>,new.dic.ever<span class="op">$</span>Description),]</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">new.dic.past =<span class="st"> </span>new.dic.ever[<span class="kw">grep</span>(<span class="st">'Past'</span>,new.dic.ever<span class="op">$</span>Description),]</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">new.dic.current =<span class="st"> </span>new.dic.current[<span class="kw">order</span>(new.dic.current<span class="op">$</span>Description),]</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">new.dic.past =<span class="st"> </span>new.dic.past[<span class="kw">order</span>(new.dic.past<span class="op">$</span>Description),]</a></code></pre></div>
+<p>The new data dictionaries look like:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">glimpse</span>(new.dic.current)</a></code></pre></div>
+<pre><code>## Rows: 28
+## Columns: 4
+## $ Category    &lt;chr&gt; &quot;Mental_Health&quot;, &quot;Mental_Health&quot;, &quot;Mental_Health&quot;, &quot;…
+## $ File.name   &lt;chr&gt; &quot;abcd_ksad501&quot;, &quot;abcd_ksad501&quot;, &quot;abcd_ksad501&quot;, &quot;abc…
+## $ Field.name  &lt;chr&gt; &quot;ksads_23_953_t&quot;, &quot;ksads_23_952_t&quot;, &quot;ksads_23_951_t&quot;…
+## $ Description &lt;chr&gt; &quot;Diagnosis - AbortedAttemptPresent&quot;, &quot;Diagnosis - In…
+</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">glimpse</span>(new.dic.past)</a></code></pre></div>
+<pre><code>## Rows: 28
+## Columns: 4
+## $ Category    &lt;chr&gt; &quot;Mental_Health&quot;, &quot;Mental_Health&quot;, &quot;Mental_Health&quot;, &quot;…
+## $ File.name   &lt;chr&gt; &quot;abcd_ksad501&quot;, &quot;abcd_ksad501&quot;, &quot;abcd_ksad501&quot;, &quot;abc…
+## $ Field.name  &lt;chr&gt; &quot;ksads_23_964_t&quot;, &quot;ksads_23_963_t&quot;, &quot;ksads_23_962_t&quot;…
+## $ Description &lt;chr&gt; &quot;Diagnosis - AbortedAttemptPast&quot;, &quot;Diagnosis - Inter…
+</code></pre>
+<p>Create life-time scores for each symptomology item: tmp.dat.ever.y</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(new.dic.current)){</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">    tmp.field.current=new.dic.current<span class="op">$</span>Field.name[i]</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">    tmp.field.past=new.dic.past<span class="op">$</span>Field.name[i]</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">    tmp.dat.col=<span class="kw">rowSums</span>(targetdat.clean[,<span class="kw">c</span>(tmp.field.current,tmp.field.past)],<span class="dt">na.rm=</span>T)</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">    tmp.dat.col[<span class="kw">rowSums</span>(<span class="kw">is.na</span>(targetdat.clean[,<span class="kw">c</span>(tmp.field.current,tmp.field.past)]))]=<span class="ot">NA</span></a>
+<a class="sourceLine" id="cb16-6" data-line-number="6">    <span class="cf">if</span>(i<span class="op">==</span><span class="dv">1</span>){tmp.dat.ever=tmp.dat.col}<span class="cf">else</span>{tmp.dat.ever=<span class="kw">cbind</span>(tmp.dat.ever,tmp.dat.col)}</a>
+<a class="sourceLine" id="cb16-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb16-8" data-line-number="8"><span class="kw">colnames</span>(tmp.dat.ever)=new.dic.current<span class="op">$</span>Field.name</a>
+<a class="sourceLine" id="cb16-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb16-10" data-line-number="10">tmp.dat.ever[tmp.dat.ever<span class="op">&gt;</span><span class="dv">1</span>]=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb16-11" data-line-number="11">tmp.dat.ever.y=tmp.dat.ever</a>
+<a class="sourceLine" id="cb16-12" data-line-number="12">dic.current.y=new.dic.current</a></code></pre></div>
+<p>Create data and remove participants with all NAs for either MDD mood symptoms or self-harm/suicidality data</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># create data</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">Depre_symptoms.DSM.tomerge=</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="st">      </span><span class="kw">data.frame</span>(<span class="dt">src_subject_id=</span>targetdat.clean<span class="op">$</span>src_subject_id,</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">                 <span class="dt">KSADS.Dep_symptoms_sum_ever.y=</span><span class="kw">sum_diagnosis</span>(tmp.dat.ever,new.dic.current,ls.items.Symp),</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">                 <span class="dt">KSADS.Dep_symptoms_sum_current.y=</span><span class="kw">sum_diagnosis</span>(targetdat.clean,new.dic.current,ls.items.Symp))</a></code></pre></div>
+<pre><code>## New names:
+## * NA -&gt; ...1
+## * NA -&gt; ...2
+## * NA -&gt; ...3
+## * NA -&gt; ...4
+## * NA -&gt; ...5
+## * ...
+## New names:
+## * NA -&gt; ...1
+## * NA -&gt; ...2
+## * NA -&gt; ...3
+## * NA -&gt; ...4
+## * NA -&gt; ...5
+## * ...
+</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># set NAs</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">tmp.loc.symp =<span class="st"> </span><span class="kw">rowSums</span>(<span class="op">!</span><span class="kw">is.na</span>(tmp.dat.ever[,new.dic.current<span class="op">$</span>Field.name[<span class="kw">grep</span>(<span class="st">'^Symptom'</span>,new.dic.current<span class="op">$</span>Description)]]))<span class="op">==</span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">tmp.loc.diagn =<span class="st"> </span><span class="kw">rowSums</span>(<span class="op">!</span><span class="kw">is.na</span>(tmp.dat.ever[,new.dic.current<span class="op">$</span>Field.name[<span class="kw">grep</span>(<span class="st">'^Diagnosis'</span>,new.dic.current<span class="op">$</span>Description)]]))<span class="op">==</span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">tmp.loc =<span class="st"> </span>tmp.loc.symp<span class="op">==</span>T<span class="op">&amp;</span>tmp.loc.diagn<span class="op">==</span>T </a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">Depre_symptoms.DSM.tomerge<span class="op">$</span>KSADS.Dep_symptoms_sum_ever.y[tmp.loc]=<span class="ot">NA</span></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">tmp.loc =<span class="st"> </span><span class="kw">rowSums</span>(<span class="kw">is.na</span>(targetdat.clean[,new.dic.current<span class="op">$</span>Field.name]))</a>
+<a class="sourceLine" id="cb19-7" data-line-number="7">tmp.loc.symp =<span class="st"> </span><span class="kw">rowSums</span>(<span class="op">!</span><span class="kw">is.na</span>(targetdat.clean[,new.dic.current<span class="op">$</span>Field.name[<span class="kw">grep</span>(<span class="st">'^Symptom'</span>,new.dic.current<span class="op">$</span>Description)]]))<span class="op">==</span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb19-8" data-line-number="8">tmp.loc.diagn =<span class="st"> </span><span class="kw">rowSums</span>(<span class="op">!</span><span class="kw">is.na</span>(targetdat.clean[,new.dic.current<span class="op">$</span>Field.name[<span class="kw">grep</span>(<span class="st">'^Diagnosis'</span>,new.dic.current<span class="op">$</span>Description)]]))<span class="op">==</span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb19-9" data-line-number="9">tmp.loc =<span class="st"> </span>tmp.loc.symp<span class="op">==</span>T<span class="op">&amp;</span>tmp.loc.diagn<span class="op">==</span>T </a>
+<a class="sourceLine" id="cb19-10" data-line-number="10">Depre_symptoms.DSM.tomerge<span class="op">$</span>KSADS.Dep_symptoms_sum_current.y[tmp.loc]=<span class="ot">NA</span></a></code></pre></div>
+<p>Merge with other phenotypes</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">targetdat.clean=<span class="kw">merge</span>(targetdat.clean,Depre_symptoms.DSM.tomerge,<span class="dt">by=</span><span class="st">'src_subject_id'</span>,<span class="dt">all.x=</span>T)</a></code></pre></div>
+<p>=&gt; Caregiver report Prepare data dictionaries</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">new.dic =<span class="st"> </span>ls.var[<span class="kw">grep</span>(<span class="st">'^Symptom -|Suicid|suicid|Attempt|SelfInjur'</span>,ls.var<span class="op">$</span>Description),] <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># Items under MDD category in ABCD (symptom) + suicidality &amp; self-injurial behaviour (diagnosis)</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="st">          </span>.[<span class="kw">grep</span>(<span class="st">'_ksad'</span>,.<span class="op">$</span>File.name),] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="st">          </span>.[<span class="kw">grep</span>(<span class="st">'p$'</span>,.<span class="op">$</span>Field.name),]</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb21-5" data-line-number="5">new.dic.ever =<span class="st"> </span>new.dic[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">'^Symptom - No two month symptom'</span>,new.dic<span class="op">$</span>Description),]</a>
+<a class="sourceLine" id="cb21-6" data-line-number="6">new.dic.current =<span class="st"> </span>new.dic.ever[<span class="kw">grep</span>(<span class="st">'Present'</span>,new.dic.ever<span class="op">$</span>Description),]</a>
+<a class="sourceLine" id="cb21-7" data-line-number="7">new.dic.past =<span class="st"> </span>new.dic.ever[<span class="kw">grep</span>(<span class="st">'Past'</span>,new.dic.ever<span class="op">$</span>Description),]</a>
+<a class="sourceLine" id="cb21-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb21-9" data-line-number="9">new.dic.current =<span class="st"> </span>new.dic.current[<span class="kw">order</span>(new.dic.current<span class="op">$</span>Description),]</a>
+<a class="sourceLine" id="cb21-10" data-line-number="10">new.dic.past =<span class="st"> </span>new.dic.past[<span class="kw">order</span>(new.dic.past<span class="op">$</span>Description),]</a></code></pre></div>
+<p>Create life-time scores for each symptomology item</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(new.dic.current)){</a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">    tmp.field.current=new.dic.current<span class="op">$</span>Field.name[i]</a>
+<a class="sourceLine" id="cb22-3" data-line-number="3">    tmp.field.past=new.dic.past<span class="op">$</span>Field.name[i]</a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">    tmp.dat.col=<span class="kw">rowSums</span>(targetdat.clean[,<span class="kw">c</span>(tmp.field.current,tmp.field.past)],<span class="dt">na.rm=</span>T)</a>
+<a class="sourceLine" id="cb22-5" data-line-number="5">    tmp.dat.col[<span class="kw">rowSums</span>(<span class="kw">is.na</span>(targetdat.clean[,<span class="kw">c</span>(tmp.field.current,tmp.field.past)]))]=<span class="ot">NA</span></a>
+<a class="sourceLine" id="cb22-6" data-line-number="6">    <span class="cf">if</span>(i<span class="op">==</span><span class="dv">1</span>){tmp.dat.ever=tmp.dat.col}<span class="cf">else</span>{tmp.dat.ever=<span class="kw">cbind</span>(tmp.dat.ever,tmp.dat.col)}</a>
+<a class="sourceLine" id="cb22-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb22-8" data-line-number="8"><span class="kw">colnames</span>(tmp.dat.ever)=new.dic.current<span class="op">$</span>Field.name</a>
+<a class="sourceLine" id="cb22-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb22-10" data-line-number="10">tmp.dat.ever[tmp.dat.ever<span class="op">&gt;</span><span class="dv">1</span>]=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb22-11" data-line-number="11">tmp.dat.ever.p=tmp.dat.ever</a>
+<a class="sourceLine" id="cb22-12" data-line-number="12">dic.current.p=new.dic.current</a></code></pre></div>
+<p>The new data dictionaries look like:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">glimpse</span>(new.dic.current)</a></code></pre></div>
+<pre><code>## Rows: 28
+## Columns: 4
+## $ Category    &lt;chr&gt; &quot;Mental_Health&quot;, &quot;Mental_Health&quot;, &quot;Mental_Health&quot;, &quot;…
+## $ File.name   &lt;chr&gt; &quot;abcd_ksad01&quot;, &quot;abcd_ksad01&quot;, &quot;abcd_ksad01&quot;, &quot;abcd_k…
+## $ Field.name  &lt;chr&gt; &quot;ksads_23_953_p&quot;, &quot;ksads_23_952_p&quot;, &quot;ksads_23_951_p&quot;…
+## $ Description &lt;chr&gt; &quot;Diagnosis - AbortedAttemptPresent&quot;, &quot;Diagnosis - In…
+</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">glimpse</span>(new.dic.past)</a></code></pre></div>
+<pre><code>## Rows: 28
+## Columns: 4
+## $ Category    &lt;chr&gt; &quot;Mental_Health&quot;, &quot;Mental_Health&quot;, &quot;Mental_Health&quot;, &quot;…
+## $ File.name   &lt;chr&gt; &quot;abcd_ksad01&quot;, &quot;abcd_ksad01&quot;, &quot;abcd_ksad01&quot;, &quot;abcd_k…
+## $ Field.name  &lt;chr&gt; &quot;ksads_23_964_p&quot;, &quot;ksads_23_963_p&quot;, &quot;ksads_23_962_p&quot;…
+## $ Description &lt;chr&gt; &quot;Diagnosis - AbortedAttemptPast&quot;, &quot;Diagnosis - Inter…
+</code></pre>
+<p>Create data and remove participants with all NAs for either MDD mood symptoms or self-harm/suicidality data</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co"># create data</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">Depre_symptoms.DSM.tomerge=</a>
+<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="st">      </span><span class="kw">data.frame</span>(<span class="dt">src_subject_id=</span>targetdat.clean<span class="op">$</span>src_subject_id,</a>
+<a class="sourceLine" id="cb27-4" data-line-number="4">                 <span class="dt">KSADS.Dep_symptoms_sum_ever.p=</span><span class="kw">sum_diagnosis</span>(tmp.dat.ever,new.dic.current,ls.items.Symp),</a>
+<a class="sourceLine" id="cb27-5" data-line-number="5">                 <span class="dt">KSADS.Dep_symptoms_sum_current.p=</span><span class="kw">sum_diagnosis</span>(targetdat.clean,new.dic.current,ls.items.Symp))</a></code></pre></div>
+<pre><code>## New names:
+## * NA -&gt; ...1
+## * NA -&gt; ...2
+## * NA -&gt; ...3
+## * NA -&gt; ...4
+## * NA -&gt; ...5
+## * ...
+## New names:
+## * NA -&gt; ...1
+## * NA -&gt; ...2
+## * NA -&gt; ...3
+## * NA -&gt; ...4
+## * NA -&gt; ...5
+## * ...
+</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="co"># set NAs</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2">tmp.loc.symp =<span class="st"> </span><span class="kw">rowSums</span>(<span class="op">!</span><span class="kw">is.na</span>(tmp.dat.ever[,new.dic.current<span class="op">$</span>Field.name[<span class="kw">grep</span>(<span class="st">'^Symptom'</span>,new.dic.current<span class="op">$</span>Description)]]))<span class="op">==</span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3">tmp.loc.diagn =<span class="st"> </span><span class="kw">rowSums</span>(<span class="op">!</span><span class="kw">is.na</span>(tmp.dat.ever[,new.dic.current<span class="op">$</span>Field.name[<span class="kw">grep</span>(<span class="st">'^Diagnosis'</span>,new.dic.current<span class="op">$</span>Description)]]))<span class="op">==</span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb29-4" data-line-number="4">tmp.loc =<span class="st"> </span>tmp.loc.symp<span class="op">==</span>T<span class="op">&amp;</span>tmp.loc.diagn<span class="op">==</span>T </a>
+<a class="sourceLine" id="cb29-5" data-line-number="5">Depre_symptoms.DSM.tomerge<span class="op">$</span>KSADS.Dep_symptoms_sum_ever.p[tmp.loc]=<span class="ot">NA</span></a>
+<a class="sourceLine" id="cb29-6" data-line-number="6">tmp.loc =<span class="st"> </span><span class="kw">rowSums</span>(<span class="kw">is.na</span>(targetdat.clean[,new.dic.current<span class="op">$</span>Field.name]))</a>
+<a class="sourceLine" id="cb29-7" data-line-number="7">tmp.loc.symp =<span class="st"> </span><span class="kw">rowSums</span>(<span class="op">!</span><span class="kw">is.na</span>(targetdat.clean[,new.dic.current<span class="op">$</span>Field.name[<span class="kw">grep</span>(<span class="st">'^Symptom'</span>,new.dic.current<span class="op">$</span>Description)]]))<span class="op">==</span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb29-8" data-line-number="8">tmp.loc.diagn =<span class="st"> </span><span class="kw">rowSums</span>(<span class="op">!</span><span class="kw">is.na</span>(targetdat.clean[,new.dic.current<span class="op">$</span>Field.name[<span class="kw">grep</span>(<span class="st">'^Diagnosis'</span>,new.dic.current<span class="op">$</span>Description)]]))<span class="op">==</span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb29-9" data-line-number="9">tmp.loc =<span class="st"> </span>tmp.loc.symp<span class="op">==</span>T<span class="op">&amp;</span>tmp.loc.diagn<span class="op">==</span>T </a>
+<a class="sourceLine" id="cb29-10" data-line-number="10">Depre_symptoms.DSM.tomerge<span class="op">$</span>KSADS.Dep_symptoms_sum_current.p[tmp.loc]=<span class="ot">NA</span></a></code></pre></div>
+<p>Merge with other phenotypes</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">targetdat.clean=<span class="kw">merge</span>(targetdat.clean,Depre_symptoms.DSM.tomerge,<span class="dt">by=</span><span class="st">'src_subject_id'</span>,<span class="dt">all.x=</span>T)</a></code></pre></div>
+<h5 id="depressive-symptoms-based-on-dsm-v-criteria">Depressive symptoms based on <a href="https://github.com/xshen796/ABCD_UoEPsych/blob/main/DataManagement/Phenotype/MDD_and_Depressive_symptoms/TableS2_DepreSymptom_Derivation.xlsx?raw=true">DSM-V criteria</a></h5>
+<p>Select data fields for core symptoms, secondary symptoms and suicidality items</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">Acol.item =<span class="st"> 'Depressed.Mood|Anhedonia|Fatigue'</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2">Suicidality.item =<span class="st"> 'Suicid|Attempt'</span></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4">ls.cols.p.core =<span class="st"> </span>dic.current.p<span class="op">$</span>Field.name[<span class="kw">grep</span>(Acol.item,dic.current.p<span class="op">$</span>Description)]</a>
+<a class="sourceLine" id="cb31-5" data-line-number="5">ls.cols.y.core =<span class="st"> </span>dic.current.y<span class="op">$</span>Field.name[<span class="kw">grep</span>(Acol.item,dic.current.y<span class="op">$</span>Description)]</a>
+<a class="sourceLine" id="cb31-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb31-7" data-line-number="7">ls.cols.p.suicidality =<span class="st"> </span>dic.current.p[<span class="kw">grep</span>(Suicidality.item,dic.current.p<span class="op">$</span>Description),] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb31-8" data-line-number="8"><span class="st">                         </span>.[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">'Suicidalideation'</span>,.<span class="op">$</span>Description),] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb31-9" data-line-number="9"><span class="st">                         </span>.[,<span class="st">'Field.name'</span>]</a>
+<a class="sourceLine" id="cb31-10" data-line-number="10">ls.cols.y.suicidality =<span class="st"> </span>dic.current.y[<span class="kw">grep</span>(Suicidality.item,dic.current.y<span class="op">$</span>Description),] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb31-11" data-line-number="11"><span class="st">                         </span>.[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">'Suicidalideation'</span>,.<span class="op">$</span>Description),] <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb31-12" data-line-number="12"><span class="st">                         </span>.[,<span class="st">'Field.name'</span>]</a></code></pre></div>
+<p>Calculate total scores for core, secondary and suicidality items</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">targetdat.clean<span class="op">$</span>DS.core.total.p=<span class="kw">rowSums</span>(tmp.dat.ever.p[,ls.cols.p.core],<span class="dt">na.rm=</span>T)</a>
+<a class="sourceLine" id="cb32-2" data-line-number="2">targetdat.clean<span class="op">$</span>DS.secondary.total.p=targetdat.clean<span class="op">$</span>KSADS.Dep_symptoms_sum_ever.p<span class="op">-</span>targetdat.clean<span class="op">$</span>DS.core.total.p</a>
+<a class="sourceLine" id="cb32-3" data-line-number="3">targetdat.clean<span class="op">$</span>DS.suicidality.total.p=<span class="kw">rowSums</span>(tmp.dat.ever.p[,ls.cols.p.suicidality],<span class="dt">na.rm=</span>T)</a>
+<a class="sourceLine" id="cb32-4" data-line-number="4">targetdat.clean<span class="op">$</span>DS.core.total.y=<span class="kw">rowSums</span>(tmp.dat.ever.y[,ls.cols.y.core],<span class="dt">na.rm=</span>T)</a>
+<a class="sourceLine" id="cb32-5" data-line-number="5">targetdat.clean<span class="op">$</span>DS.secondary.total.y=targetdat.clean<span class="op">$</span>KSADS.Dep_symptoms_sum_ever.y<span class="op">-</span>targetdat.clean<span class="op">$</span>DS.core.total.y</a>
+<a class="sourceLine" id="cb32-6" data-line-number="6">targetdat.clean<span class="op">$</span>DS.suicidality.total.y=<span class="kw">rowSums</span>(tmp.dat.ever.y[,ls.cols.y.suicidality],<span class="dt">na.rm=</span>T)</a></code></pre></div>
+<p>Create measures for depressive symptoms =&gt; Caregiver report</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">targetdat.clean =<span class="st"> </span><span class="kw">mutate</span>(targetdat.clean,<span class="dt">KSADS.Depressive_symptoms_ever.p=</span><span class="kw">ifelse</span>(((DS.core.total.p<span class="op">==</span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>DS.secondary.total.p<span class="op">&gt;</span><span class="dv">3</span>)<span class="op">|</span>(DS.suicidality.total.p<span class="op">&gt;=</span><span class="dv">1</span>))<span class="op">&amp;</span>KSADS.MDD.p<span class="op">==</span><span class="dv">1</span>, <span class="dv">3</span>, </a>
+<a class="sourceLine" id="cb33-2" data-line-number="2">                                           <span class="kw">ifelse</span>((DS.core.total.p<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>DS.secondary.total.p<span class="op">&gt;</span><span class="dv">2</span>)<span class="op">|</span>(KSADS.Dep_symptoms_sum_ever.p<span class="op">&gt;=</span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>KSADS.Dep_symptoms_sum_ever.p<span class="op">&lt;=</span><span class="dv">8</span>),<span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb33-3" data-line-number="3">                                           <span class="kw">ifelse</span>((DS.core.total.p<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>DS.secondary.total.p<span class="op">&gt;=</span><span class="dv">1</span>)<span class="op">|</span>(KSADS.Dep_symptoms_sum_ever.p<span class="op">&gt;=</span><span class="dv">5</span> <span class="op">&amp;</span><span class="st"> </span>KSADS.Dep_symptoms_sum_ever.p<span class="op">&lt;=</span><span class="dv">6</span>),<span class="dv">1</span>,<span class="dv">0</span>))))</a></code></pre></div>
+<p>=&gt; Child report</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">targetdat.clean =<span class="st"> </span><span class="kw">mutate</span>(targetdat.clean,<span class="dt">KSADS.Depressive_symptoms_ever.y=</span><span class="kw">ifelse</span>(((DS.core.total.y<span class="op">==</span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>DS.secondary.total.y<span class="op">&gt;</span><span class="dv">3</span>)<span class="op">|</span>(DS.suicidality.total.y<span class="op">&gt;=</span><span class="dv">1</span>))<span class="op">&amp;</span>KSADS.MDD.y<span class="op">==</span><span class="dv">1</span>, <span class="dv">3</span>, </a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">                                           <span class="kw">ifelse</span>((DS.core.total.y<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>DS.secondary.total.y<span class="op">&gt;</span><span class="dv">2</span>)<span class="op">|</span>(KSADS.Dep_symptoms_sum_ever.y<span class="op">&gt;=</span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>KSADS.Dep_symptoms_sum_ever.y<span class="op">&lt;=</span><span class="dv">8</span>),<span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb34-3" data-line-number="3">                                           <span class="kw">ifelse</span>((DS.core.total.y<span class="op">&gt;</span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>DS.secondary.total.y<span class="op">&gt;=</span><span class="dv">1</span>)<span class="op">|</span>((KSADS.Dep_symptoms_sum_ever.y<span class="op">&gt;=</span><span class="dv">5</span> <span class="op">&amp;</span><span class="st"> </span>KSADS.Dep_symptoms_sum_ever.y<span class="op">&lt;=</span><span class="dv">6</span>)),<span class="dv">1</span>,<span class="dv">0</span>))))</a>
+<a class="sourceLine" id="cb34-4" data-line-number="4">targetdat.clean<span class="op">$</span>KSADS.Depressive_symptoms_ever.p[<span class="kw">is.na</span>(targetdat.clean<span class="op">$</span>KSADS.Dep_symptoms_sum_ever.p)]=<span class="ot">NA</span></a>
+<a class="sourceLine" id="cb34-5" data-line-number="5">targetdat.clean<span class="op">$</span>KSADS.Depressive_symptoms_ever.y[<span class="kw">is.na</span>(targetdat.clean<span class="op">$</span>KSADS.Dep_symptoms_sum_ever.y)]=<span class="ot">NA</span></a></code></pre></div>
+<p>Merge with other phenotypes and clean up intermediate data columns</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">targetdat.clean<span class="op">$</span>KSADS.Depressive_symptoms_ever.p[<span class="kw">is.na</span>(targetdat.clean<span class="op">$</span>KSADS.Dep_symptoms_sum_ever.p)]=<span class="ot">NA</span></a>
+<a class="sourceLine" id="cb35-2" data-line-number="2">targetdat.clean<span class="op">$</span>KSADS.Depressive_symptoms_ever.y[<span class="kw">is.na</span>(targetdat.clean<span class="op">$</span>KSADS.Dep_symptoms_sum_ever.y)]=<span class="ot">NA</span></a>
+<a class="sourceLine" id="cb35-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb35-4" data-line-number="4">targetdat.clean =<span class="st"> </span>targetdat.clean[,<span class="op">!</span><span class="kw">grepl</span>(<span class="st">'^DS.core|^DS.secondary|^DS.suici'</span>,<span class="kw">colnames</span>(targetdat.clean))]</a></code></pre></div>
+<hr />
+<h5 id="outputs">Outputs:</h5>
+<p>In targetdat.clean (all columns below are life-time measures):</p>
+<ul>
+<li>KSADS.MDD.y: MDD diagnosis based on child report</li>
+<li>KSADS.MDD.p: MDD diagnosis based on caregiver report</li>
+<li>KSADS.Dep_symptoms_sum_ever.y: no. of depressive symptoms reported based on child report</li>
+<li>KSADS.Dep_symptoms_sum_ever.p: no. of depressive symptoms reported based on caregiver report</li>
+<li>KSADS.Depressive_symptoms_ever.y: DSM-V depressive symptoms reported by children</li>
+<li>KSADS.Depressive_symptoms_ever.p: DSM-V depressive symptoms reported by caregivers</li>
+</ul>
+
+</body>
+</html>
