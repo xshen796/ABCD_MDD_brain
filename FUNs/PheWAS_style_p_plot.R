@@ -26,10 +26,10 @@ p_plot<-function(TargetResult,color_theme_usr='Shen',shape_sig=T,sig_nominal=F,
                  add_category_name=F,fig_size=c(24,20),y_lim=5){
   
   # Add label for some regions to have a different shape
-  ls.shape = labels_annot$V1[labels_annot$is.shape==T]
+
   TargetResult$shape=1
   if (shape_sig==T){
-    TargetResult$shape[TargetResult$dependent %in% ls.shape]=19
+    TargetResult$shape[TargetResult$p.corrected<0.05]=19
   }else{}
   
   TargetResult$sig = 99999
@@ -112,7 +112,7 @@ p_plot<-function(TargetResult,color_theme_usr='Shen',shape_sig=T,sig_nominal=F,
                alpha=0.5)+
     scale_colour_manual(values = cl.theme)+
     geom_text_repel(box.padding = unit(0.5,'lines'),segment.size = 0.2,
-                    max.iter = 2000)+
+                    max.iter = 2000, max.overlaps = 10,position = position_dodge(0.5))+
     theme(axis.title.x=element_blank(),
           axis.text.x=element_text(angle = 90, size = 12,hjust=1, vjust = 1, face='bold'),
           axis.ticks.x=element_blank(),
