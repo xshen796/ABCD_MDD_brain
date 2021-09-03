@@ -76,5 +76,6 @@ reg_phewasStyle <- function (ls.models,dat_short,dat_long,correctByFactor=F){
       }else{
             result.table$p.corrected=p.adjust(result.table$p.value,method='fdr')
       }
+      rownames(result.table)=NULL
       return(result.table)
 }
