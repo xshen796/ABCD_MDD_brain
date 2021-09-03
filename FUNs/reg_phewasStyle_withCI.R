@@ -22,7 +22,7 @@ run_model <- function(ls.mod,mod.dat_short,mod.dat_long){
       
       fit=lme(as.formula(as.character(mod)),data=mod.dat_long,
               na.action=na.exclude,random=~1|f.eid,control=lmeControl(opt = "optim"))
-      tmp.ci = intervals(fit)$fixed %>% as.data.frame %>% 
+      tmp.ci = intervals(fit,which='fixed')$fixed %>% as.data.frame %>% 
          select(Lower_95CI=lower,Upper_95CI=upper) %>% 
          .[tail(1),]
       tmp.res = summary(fit)$tTable %>% 
