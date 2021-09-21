@@ -44,7 +44,9 @@ ls.sig.region=filter(targetdata,
 ls.label = data.frame(V1=ls.sig.region,
                       V2=lapply(as.list(ls.sig.region),
                                 FUN = add_label,
-                                tmp.replace.dic=region.replace) %>% unlist)
+                                tmp.replace.dic=region.replace) %>% unlist%>% 
+                        as.character,
+                      stringsAsFactors = F)
 ls.sig.region=filter(targetdata,
                      p.corrected<0.05) %>%
                      .[grep('KSADS.MDD',.$factor),] %>%  
@@ -52,7 +54,9 @@ ls.sig.region=filter(targetdata,
 ls.label.MDD = data.frame(V1=ls.sig.region,
                       V2=lapply(as.list(ls.sig.region),
                                 FUN = add_label,
-                                tmp.replace.dic=region.replace) %>% unlist)
+                                tmp.replace.dic=region.replace) %>% unlist %>% 
+                                as.character,
+                      stringsAsFactors = F)
 
 
 # DS ----------------------------------------------------------------------
@@ -82,7 +86,7 @@ fig.DS=ggarrange(fig.p.DS,fig.y.DS,
                  labels = c('a.','b.'))
   
   
-tiff("Figs/Depre_IM/Depre_IM_bypANDy.tiff", width = 9, height = 13, units = 'in', res = 300)
+png("Figs/Depre_IM/Depre_IM_bypANDy.png", width = 9, height = 13, units = 'in', res = 300)
 fig.DS # Make plot
 dev.off()
 

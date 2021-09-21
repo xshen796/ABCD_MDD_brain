@@ -287,9 +287,16 @@ FAM.dat.clean=data.frame(FAM.dat.clean[,!grepl('_income_|_empl_',colnames(FAM.da
 
 # create a column for recent social deprivation ---------------------------------------
 
+tidy_column <- function(x){
+   x[x>=777]=NA
+   return(x)
+}
+
 socialdepr.dat=FAM.dat.clean %>% 
-      select(src_subject_id=src_subject_id,starts_with('demo_fam_exp'))
-socialdepr.dat[socialdepr.dat>=777]=NA
+      select(src_subject_id=src_subject_id,starts_with('demo_fam_exp')) %>%
+      select(-ends_with('.1')) %>% 
+      mutate_if(is.numeric, tidy_column)
+
 
 recent_socialdprv=rowSums(socialdepr.dat[,2:ncol(socialdepr.dat)],na.rm=T)
 loc.allNAs=rowSums(is.na(socialdepr.dat[,2:ncol(socialdepr.dat)]))
@@ -333,7 +340,7 @@ FAM.dat.clean=data.frame(FAM.dat.clean[,!grepl('^ksads_14',colnames(FAM.dat.clea
 
 # add a column for scanner type -------------------------------------------
 
-image_info=readRDS('/exports/igmm/eddie/GenScotDepression/shen/SData/ABCD/release2.0.1/iii.data/MRI_file_sharing/image03.rds')
+image_info=readRDS('/exports/igmm/eddie/GenScotDepression/data/abcd/release2.0.1/iii.data/MRI_file_sharing/image03.rds')
 image_info=image_info[,c("src_subject_id","scan_type","scanner_manufacturer_pd")]
 image_info=filter(image_info,scan_type=='MR structural (T1)')
 image_info=image_info[,c("src_subject_id","scanner_manufacturer_pd")]

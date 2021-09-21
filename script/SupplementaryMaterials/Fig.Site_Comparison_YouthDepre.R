@@ -7,8 +7,7 @@ library('dplyr')
 library('ggplot2')
 library('reshape2')
 library('ggpubr')
-setwd('Z:/Documents/sdata_backup/Shen/iv.ABCD/release2.0.1/AdolescentMDD/')
-
+setwd('/exports/igmm/eddie/GenScotDepression/shen/ActiveProject/ImagingProject/ABCD_MDD_brain/')
 
 # Load data ---------------------------------------------------------------
 
@@ -38,7 +37,7 @@ for (i in ls(pattern = '^site_res.||result.')){
 # Create a list of results
 tmp.result=site_res.YouthDepre.bulk.site01
 tmp.result=filter(tmp.result,factor!='CBCL.dsm5.depre.p')
-ls.test=tmp.result[,1:2]
+ls.test=tmp.result[,c('dependent','factor')]
 # Reformat results
 ls.res=ls(pattern = '^site_res')
 
@@ -76,7 +75,7 @@ loo_plot<-function(result.table){
   fig = ggplot(result.table, aes(x=reorder(site,-ord), y=beta, color=type)) + 
     geom_line() +
     geom_point()+
-    geom_errorbar(aes(ymin=beta-std, ymax=beta+std), width=.2,
+    geom_errorbar(aes(ymin=Lower_95CI, ymax=Upper_95CI), width=.2,
                   position=position_dodge(0.05))+
     geom_hline(yintercept=0, linetype="dashed", color = "red")+
     ggtitle(fig.title)+
@@ -142,18 +141,18 @@ MDDp.sumPlot=ggarrange(fig.Cortical_thickness_MDD.p,
 
 # Make plot files ---------------------------------------------------------
 
-tiff("Figs/SuppleInfo/loo_DSp.tiff", width = 8, height = 6, units = 'in', res = 400)
+png("Figs/SuppleInfo/loo_DSp.png", width = 8, height = 6, units = 'in', res = 400)
 DSp.sumPlot # Make plot
 dev.off()
 
-tiff("Figs/SuppleInfo/loo_DSy.tiff", width = 8, height = 6, units = 'in', res = 400)
+png("Figs/SuppleInfo/loo_DSy.png", width = 8, height = 6, units = 'in', res = 400)
 DSy.sumPlot # Make plot
 dev.off()
 
-tiff("Figs/SuppleInfo/loo_MDDp.tiff", width = 8, height = 6, units = 'in', res = 400)
+png("Figs/SuppleInfo/loo_MDDp.png", width = 8, height = 6, units = 'in', res = 400)
 MDDp.sumPlot # Make plot
 dev.off()
 
-tiff("Figs/SuppleInfo/loo_MDDy.tiff", width = 8, height = 6, units = 'in', res = 400)
+png("Figs/SuppleInfo/loo_MDDy.png", width = 8, height = 6, units = 'in', res = 400)
 MDDy.sumPlot # Make plot
 dev.off()

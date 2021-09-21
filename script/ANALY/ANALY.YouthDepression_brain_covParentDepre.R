@@ -3,7 +3,7 @@
 library('dplyr')
 library('pbapply')
 library('nlme')
-setwd('/gpfs/igmmfs01/eddie/GenScotDepression/shen/SData/UKB/iv.ABCD/release2.0.1/FamilialRisk_PGRS_MDD')
+setwd('/exports/igmm/eddie/GenScotDepression/shen/ActiveProject/ImagingProject/ABCD_MDD_brain/')
 
 # Load data ---------------------------------------------------------------
 # fam data
@@ -50,7 +50,7 @@ targetdata_longformat <- long_format(targetdata,cols_nonimg,cols_img)
 
 
 # Define functions --------------------------------------------------------
-source('FUNs/reg_phewasStyle.R')
+source('FUNs/reg_phewasStyle_withCI.R')
 
 # Define global vars ------------------------------------------------------
 

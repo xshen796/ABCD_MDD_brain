@@ -1,4 +1,4 @@
-setwd('Z:/Documents/sdata_backup/Shen/iv.ABCD/release2.0.1/AdolescentMDD/')
+setwd('/exports/igmm/eddie/GenScotDepression/shen/ActiveProject/ImagingProject/ABCD_MDD_brain/')
 
 source('FUNs/PheWAS_style_p_plot.R')
 source('FUNs/wholeB_correction.R')
@@ -111,7 +111,7 @@ fig=
          aes(x=reorder(dependent,-ord), y=beta,fill=category)) +
   geom_bar(stat="identity", width = 0.5, position=position_dodge())+
   geom_errorbar(aes(x=reorder(dependent,-ord), 
-                    ymin=beta-std, ymax=beta+std), width=0.2, colour="grey", alpha=0.9, size=0.4)+
+                    ymin=Lower_95CI, ymax=Upper_95CI), width=0.2, colour="grey", alpha=0.9, size=0.4)+
   scale_fill_manual(values = cl.theme)+
   theme(axis.title.y=element_blank(),
         #axis.text.y=element_blank(),
@@ -125,7 +125,7 @@ fig=
         axis.line.y = element_blank(),
         plot.title=element_text(lineheight = 1,face='bold',hjust=0.5))+
   geom_hline(yintercept=0 , color = "grey", size=0.5)+
-  geom_text(aes(label=sig), colour="black", hjust=10, size=3)+
+  geom_text(aes(label=sig), colour="black", hjust=15, size=3)+
   xlab('Phenotype')+
   ylab('Standardised effect size')+
   guides(fill=guide_legend(title="Category"))+
@@ -134,6 +134,6 @@ fig=
 
 # Save file ---------------------------------------------------------------
 
-png("Figs/SuppleInfo/meanSymptoms_beta_bargraph.png", width = 10, height = 3, units = 'in', res = 300)
+png("Figs/SuppleInfo/meanSymptoms_beta_bargraph.png", width = 13, height = 4.5, units = 'in', res = 300)
 fig # Make plot
 dev.off()

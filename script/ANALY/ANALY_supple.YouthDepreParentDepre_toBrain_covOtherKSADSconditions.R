@@ -3,7 +3,7 @@
 library('dplyr')
 library('pbapply')
 library('nlme')
-setwd('/gpfs/igmmfs01/eddie/GenScotDepression/shen/ActiveProject/ImagingProject/Adolescent_MDD_brain')
+setwd('/exports/igmm/eddie/GenScotDepression/shen/ActiveProject/ImagingProject/ABCD_MDD_brain/')
 
 # Load data ---------------------------------------------------------------
 # fam data
@@ -53,7 +53,7 @@ targetdata_longformat <- long_format(targetdata,cols_nonimg,cols_img)
 
 
 # Define functions --------------------------------------------------------
-source('FUNs/reg_phewasStyle.R')
+source('FUNs/reg_phewasStyle_withCI.R')
 
 # Define global vars ------------------------------------------------------
 
@@ -128,4 +128,5 @@ result.YouthDepre.bulk=reg_phewasStyle(ls.model.bulk,dat_short=targetdata,dat_lo
 #result.YouthDepre.region=reg_phewasStyle(ls.model.region,dat_short=targetdata,dat_long=dat_long,correctByFactor = T)
 result.YouthDepre.region.covWholeB=reg_phewasStyle(ls.model.region.covWholeB,dat_short=targetdata,dat_long=dat_long,correctByFactor = T)
 
-save(result.YouthDepre.bulk,result.YouthDepre.region.covWholeB,file='result/x.Supplementary_materials//YouthDepree_WM_subcor_FS_covKSADSotherConditions.RData')
+save(result.YouthDepre.bulk,result.YouthDepre.region.covWholeB,
+     file='result/x.Supplementary_materials//YouthDepree_WM_subcor_FS_covKSADSotherConditions.RData')

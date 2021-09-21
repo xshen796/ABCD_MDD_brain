@@ -69,7 +69,7 @@ fig.depre=
   ggplot(dat.depre, aes(x=reorder(dependent,-ord), y=beta)) + 
   geom_bar(fill='darkgoldenrod1',  position=position_dodge(), stat="identity", width=0.8) +
   geom_errorbar(aes(x=reorder(dependent,-ord), 
-                    ymin=beta-std, ymax=beta+std), width=0.2, colour="grey", alpha=0.9, size=0.4)+
+                    ymin=Lower_95CI, ymax=Upper_95CI), width=0.2, colour="grey", alpha=0.9, size=0.4)+
   ggtitle("Depressive symptoms (reported by caregivers)")+
   theme(
     panel.background = element_blank(),
@@ -82,9 +82,9 @@ fig.depre=
     plot.title = element_text(lineheight=1, face="bold", vjust=1, hjust=0.5,size=9),
     strip.text = element_text(size=8),
     plot.margin=unit(c(1,1,1,3),'mm')) +
-  geom_text(aes(label=sig), colour="black", hjust=9, size=3)+
+  geom_text(aes(label=sig), colour="black", hjust=12, size=3)+
   ylab("Beta") + xlab("\n\n") +
-  ylim(c(-0.05,0.04))+
+  ylim(c(-0.07,0.06))+
   #scale_y_reverse()+
   scale_x_discrete(position='top')+
   geom_hline(yintercept=0,size=0.5,color='grey')+
@@ -98,7 +98,7 @@ fig.mdd=
   ggplot(dat.mdd, aes(x=reorder(dependent,-ord), y=beta)) + 
   geom_bar(fill='indianred1',  position=position_dodge(), stat="identity", width=0.8) +
   geom_errorbar(aes(x=reorder(dependent,-ord), 
-                    ymin=beta-std, ymax=beta+std), width=0.2, colour="grey", alpha=0.9, size=0.4)+
+                    ymin=Lower_95CI, ymax=Upper_95CI), width=0.2, colour="grey", alpha=0.9, size=0.4)+
   ggtitle("MDD (reported by caregivers)")+
   theme(
     panel.background = element_blank(),
@@ -111,10 +111,10 @@ fig.mdd=
     plot.title = element_text(lineheight=1, face="bold", vjust=1, hjust=0.5,size=9),
     strip.text = element_text(size=8),
     plot.margin=unit(c(1,1,1,3),'mm')) +
-  geom_text(aes(label=sig), colour="black", hjust=9, size=3)+
+  geom_text(aes(label=sig), colour="black", hjust=12, size=3)+
   ylab("Cohen's d") + xlab("\n\n") +
   scale_x_discrete(position='top')+
-  ylim(c(-0.05,0.04))+
+  ylim(c(-0.07,0.06))+
   geom_hline(yintercept=0,size=0.5,color='grey')+
   geom_vline(xintercept=2.5,size=0.5,color='grey', linetype = "dashed")+
   #geom_vline(xintercept=3.5,size=0.5,color='grey', linetype = "dashed")+
@@ -165,7 +165,7 @@ fig.depre=
   ggplot(dat.depre, aes(x=reorder(dependent,-ord), y=beta)) + 
   geom_bar(fill='darkgoldenrod1',  position=position_dodge(), stat="identity", width=0.8) +
   geom_errorbar(aes(x=reorder(dependent,-ord), 
-                    ymin=beta-std, ymax=beta+std), width=0.2, colour="grey", alpha=0.9, size=0.4)+
+                    ymin=Lower_95CI, ymax=Upper_95CI), width=0.2, colour="grey", alpha=0.9, size=0.4)+
   ggtitle("Depressive symptoms (reported by children)")+
   theme(
     panel.background = element_blank(),
@@ -178,9 +178,9 @@ fig.depre=
     plot.title = element_text(lineheight=1, face="bold", vjust=1, hjust=0.5,size=9),
     strip.text = element_text(size=8),
     plot.margin=unit(c(1,1,1,3),'mm')) +
-  geom_text(aes(label=sig), colour="black", hjust=9, size=3)+
+  geom_text(aes(label=sig), colour="black", hjust=12, size=3)+
   ylab("Beta") + xlab("\n\n") +
-  ylim(c(-0.05,0.04))+
+  ylim(c(-0.07,0.06))+
   #scale_y_reverse()+
   scale_x_discrete(position='top')+
   geom_hline(yintercept=0,size=0.5,color='grey')+
@@ -194,7 +194,7 @@ fig.mdd=
   ggplot(dat.mdd, aes(x=reorder(dependent,-ord), y=beta)) + 
   geom_bar(fill='indianred1',  position=position_dodge(), stat="identity", width=0.8) +
   geom_errorbar(aes(x=reorder(dependent,-ord), 
-                    ymin=beta-std, ymax=beta+std), width=0.2, colour="grey", alpha=0.9, size=0.4)+
+                    ymin=Lower_95CI, ymax=Upper_95CI), width=0.2, colour="grey", alpha=0.9, size=0.4)+
   ggtitle("MDD (reported by children)")+
   theme(
     panel.background = element_blank(),
@@ -207,9 +207,9 @@ fig.mdd=
     plot.title = element_text(lineheight=1, face="bold", vjust=1, hjust=0.5,size=9),
     strip.text = element_text(size=8),
     plot.margin=unit(c(1,1,1,3),'mm')) +
-  geom_text(aes(label=sig), colour="black", hjust=9, size=3)+
+  geom_text(aes(label=sig), colour="black", hjust=12, size=3)+
   ylab("Cohen's d") + xlab("\n\n") +
-  ylim(c(-0.05,0.04))+
+  ylim(c(-0.07,0.06))+
   scale_x_discrete(position='top')+
   geom_hline(yintercept=0,size=0.5,color='grey')+
   geom_vline(xintercept=2.5,size=0.5,color='grey', linetype = "dashed")+

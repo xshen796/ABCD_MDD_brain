@@ -3,7 +3,7 @@
 library('dplyr')
 library('pbapply')
 library('nlme')
-setwd('/exports/igmm/eddie/GenScotDepression/shen/ActiveProject/ImagingProject/Adolescent_MDD_brain')
+setwd('/exports/igmm/eddie/GenScotDepression/shen/ActiveProject/ImagingProject/ABCD_MDD_brain/')
 
 # Load data ---------------------------------------------------------------
 # fam data
@@ -67,7 +67,7 @@ targetdata_longformat <- long_format(targetdata,cols_nonimg,cols_img)
 
 
 # Define functions --------------------------------------------------------
-source('FUNs/reg_phewasStyle.R')
+source('FUNs/reg_phewasStyle_withCI.R')
 
 # Define global vars ------------------------------------------------------
 
@@ -80,10 +80,10 @@ dat_long=targetdata_longformat
 ls.dep.all=ls.dep$short_name
 
 # factors
-#ls.factor='resid.KSADS.Depressive_symptoms_ever.p_to_y'
-ls.factor=c('KSADS.Depressive_symptoms_ever.p_minus_y',
-            'KSADS.Depressive_symptoms_ever.p_more',
-            'KSADS.Depressive_symptoms_ever.p_less')
+ls.factor='KSADS.Depressive_symptoms_ever.p_minus_y'
+# ls.factor=c('KSADS.Depressive_symptoms_ever.p_minus_y',
+#             'KSADS.Depressive_symptoms_ever.p_more',
+#             'KSADS.Depressive_symptoms_ever.p_less')
 
 # combine the two
 ls.dep.factor.combo=expand.grid(ls.dep.all,ls.factor,stringsAsFactors = F)

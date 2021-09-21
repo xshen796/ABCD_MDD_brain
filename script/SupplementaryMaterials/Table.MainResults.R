@@ -29,7 +29,7 @@ for (i in ls(pattern = '^result.')){
 
 ls.vertical.vars=c('MDD.caregiver','Depressive symptoms.caregiver',
                    'MDD.child','Depressive symptoms.child')
-cols.select=c('beta','std','p.value','p.corrected')
+cols.select=c('beta','std','Lower_95CI','Upper_95CI','p.value','p.corrected')
 ls.modality=read.table('result/i.Main_result/result.ls.txt',header = T,
                        sep='\t',stringsAsFactors = F)
 ls.FS_label=read.table('data/result_table_data/ls.Freesurfer_region_replacement_labels.csv',header = T,
@@ -53,7 +53,7 @@ for (i in 1:nrow(ls.modality)){
                       ls.vertical.vars,cols.select,dep.kw,
                       ls.label=tmp.label,
                       file_name=file_name_full,
-                      colheaders=c('Beta','std','p value','p corr'),
+                      colheaders=c('Beta','std','95% CI (lower)','95% CI (upper)','p value','p corr'),
                       table_title=table_title)
 }
 
@@ -61,7 +61,7 @@ for (i in 1:nrow(ls.modality)){
 # Save bulk measures
 ls.vertical.vars=c('MDD.caregiver','Depressive symptoms.caregiver',
                    'MDD.child','Depressive symptoms.child')
-cols.select=c('beta','std','p.value')
+cols.select=c('beta','std','Lower_95CI','Upper_95CI','p.value')
 ls.modality=read.table('result/i.Main_result/result.ls.txt',header = T,
                        sep='\t',stringsAsFactors = F)
 ls.bulk_label=read.table('data/result_table_data/ls.BulkMeasures.csv',header = T,
@@ -70,7 +70,7 @@ reorg_result_xlsx(result.table = result.YouthDepre.bulk,
                   ls.vertical.vars,cols.select,
                   ls.label=ls.bulk_label,
                   file_name='Table/SuppleMaterials/MainResult/YouthDepre_BulkMeasure.xlsx',
-                  colheaders=c('Beta','std','p value'),
+                  colheaders=c('Beta','std','95% CI (lower)','95% CI (upper)','p value'),
                   table_title='Model: Bulk imaging measure ~ MDD/Depressive symptoms')
 
 

@@ -29,18 +29,28 @@ IM.dat[abs(scale(IM.dat$bl.total.dtiMD.FiberAtlas.fibers))>5,grep('dtiMD',colnam
 
 tab.data=merge(IM.dat,tab.data,by='src_subject_id',all.x=T)
 
-targetdata = tab.data
+targetdata = tab.data %>% .[.$src_subject_id %in% FAM.dat$src_subject_id,]
 colnames(targetdata)[1]='f.eid'
 
 
 FS.dat=targetdata[,grep('^f.eid|sa\\.|thk\\.|vol\\.|sulc\\.',colnames(targetdata))]
 FS.dat.ID=FS.dat$f.eid[rowSums(!is.na(FS.dat[,2:ncol(FS.dat)]))>0]
+sum(!is.na(targetdata[targetdata$f.eid %in% FS.dat.ID,c('KSADS.MDD.p')]),na.rm=T)
+sum(!is.na(targetdata[targetdata$f.eid %in% FS.dat.ID,c('KSADS.MDD.y')]),na.rm=T)
 sum(rowSums(!is.na(targetdata[targetdata$f.eid %in% FS.dat.ID,c('KSADS.MDD.p','KSADS.MDD.y')]),na.rm=T)>0)
+sum(!is.na(targetdata[targetdata$f.eid %in% FS.dat.ID,c('KSADS.Depressive_symptoms_ever.p')]))
+sum(!is.na(targetdata[targetdata$f.eid %in% FS.dat.ID,c('KSADS.Depressive_symptoms_ever.y')]))
 sum(rowSums(!is.na(targetdata[targetdata$f.eid %in% FS.dat.ID,c('KSADS.Depressive_symptoms_ever.p','KSADS.Depressive_symptoms_ever.y')]),na.rm=T)>0)
 sum(rowSums(!is.na(targetdata[targetdata$f.eid %in% FS.dat.ID,c('KSADS.MDD.p','KSADS.MDD.y','KSADS.Depressive_symptoms_ever.p','KSADS.Depressive_symptoms_ever.y')]),na.rm=T)>0)
 
-FS.dat=targetdata[,grep('^f.eid|dtiFA|dtiMD',colnames(targetdata))]
-FS.dat.ID=FS.dat$f.eid[rowSums(!is.na(FS.dat[,2:ncol(FS.dat)]))>0]
-sum(rowSums(!is.na(targetdata[targetdata$f.eid %in% FS.dat.ID,c('KSADS.MDD.p','KSADS.MDD.y')]),na.rm=T)>0)
-sum(rowSums(!is.na(targetdata[targetdata$f.eid %in% FS.dat.ID,c('KSADS.Depressive_symptoms_ever.p','KSADS.Depressive_symptoms_ever.y')]),na.rm=T)>0)
-sum(rowSums(!is.na(targetdata[targetdata$f.eid %in% FS.dat.ID,c('KSADS.MDD.p','KSADS.MDD.y','KSADS.Depressive_symptoms_ever.p','KSADS.Depressive_symptoms_ever.y')]),na.rm=T)>0)
+DTI.dat=targetdata[,grep('^f.eid|dtiFA|dtiMD',colnames(targetdata))]
+DTI.dat.ID=DTI.dat$f.eid[rowSums(!is.na(DTI.dat[,2:ncol(DTI.dat)]))>0]
+sum(!is.na(targetdata[targetdata$f.eid %in% DTI.dat.ID,c('KSADS.MDD.p')]),na.rm=T)
+sum(!is.na(targetdata[targetdata$f.eid %in% DTI.dat.ID,c('KSADS.MDD.y')]),na.rm=T)
+sum(rowSums(!is.na(targetdata[targetdata$f.eid %in% DTI.dat.ID,c('KSADS.MDD.p','KSADS.MDD.y')]),na.rm=T)>0)
+sum(!is.na(targetdata[targetdata$f.eid %in% DTI.dat.ID,c('KSADS.Depressive_symptoms_ever.p')]))
+sum(!is.na(targetdata[targetdata$f.eid %in% DTI.dat.ID,c('KSADS.Depressive_symptoms_ever.y')]))
+sum(rowSums(!is.na(targetdata[targetdata$f.eid %in% DTI.dat.ID,c('KSADS.Depressive_symptoms_ever.p','KSADS.Depressive_symptoms_ever.y')]),na.rm=T)>0)
+sum(rowSums(!is.na(targetdata[targetdata$f.eid %in% DTI.dat.ID,c('KSADS.MDD.p','KSADS.MDD.y','KSADS.Depressive_symptoms_ever.p','KSADS.Depressive_symptoms_ever.y')]),na.rm=T)>0)
+
+

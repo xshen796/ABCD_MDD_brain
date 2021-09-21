@@ -21,13 +21,21 @@ tab.data=merge(IM.dat,tab.data,by='src_subject_id',all.x=T)
 IM.dat=readRDS('data/IMdat/DTI.dat.QCed_short.rds')
 ls.covs=c('iqc_dmri_fa_qc')#,'household_income','ADHD_ever'
 IM.dat=IM.dat[,c(1,grep('dtiFA|dtiMD',colnames(IM.dat)),grep(paste0(ls.covs,collapse='|'),colnames(IM.dat)))]
-IM.dat=filter(IM.dat,abs(scale(bl.total.dtiFA.FiberAtlas.fibers))<5)
-IM.dat=filter(IM.dat,abs(scale(bl.total.dtiMD.FiberAtlas.fibers))<5)
+IM.dat=filter(IM.dat,!is.na(bl.total.dtiFA.FiberAtlas.fibers))
+IM.dat[abs(scale(IM.dat$bl.total.dtiFA.FiberAtlas.fibers))>5,grep('dtiFA',colnames(IM.dat))]=NA
+IM.dat[abs(scale(IM.dat$bl.total.dtiMD.FiberAtlas.fibers))>5,grep('dtiMD',colnames(IM.dat))]=NA
 
 tab.data=merge(IM.dat,tab.data,by='src_subject_id',all.x=T)
 
-targetdata = tab.data
+targetdata = tab.data %>% .[.$src_subject_id %in% FAM.dat$src_subject_id,]
 colnames(targetdata)[1]='f.eid'
+
+FS.dat=targetdata[,grep('^f.eid|sa\\.|thk\\.|vol\\.|sulc\\.',colnames(targetdata))]
+FS.dat.ID=FS.dat$f.eid[rowSums(!is.na(FS.dat[,2:ncol(FS.dat)]))>0]
+DTI.dat=targetdata[,grep('^f.eid|dtiFA|dtiMD',colnames(targetdata))]
+DTI.dat.ID=DTI.dat$f.eid[rowSums(!is.na(DTI.dat[,2:ncol(DTI.dat)]))>0]
+
+targetdata = targetdata %>% .[.$f.eid %in% c(FS.dat.ID,DTI.dat.ID),]
 
 
 
@@ -36,9 +44,6 @@ colnames(targetdata)[1]='f.eid'
 # ls.IM.modal = c('dtiFA','dtiMD','iqc_dmri_fa_qc','thk\\.','sulc\\.','sa\\.','vol\\.','fsqc_qc','fsqc_qu_motion')
 # loc = rowSums(!is.na(tab.data[,grepl(paste0(ls.IM.modal,collapse = '|'),colnames(tab.data))]))
 # All participants in this dataset have at least one IM measure. 
-
-targetdata=filter(targetdata,sex!='')
-
 
 # A function for demographic variables for a given sample -----------------
 
@@ -74,6 +79,7 @@ collect_demographic <- function(data,divide_cc=F,divide_var,var_of_interest,var_
 
 # Prepare data ------------------------------------------------------------
 
+targetdata=filter(targetdata,sex!='')
 targetdata$sex = as.factor(targetdata$sex)
 targetdata$interview_age = targetdata$interview_age/12
 
@@ -165,29 +171,69 @@ options(pillar.sigfig=4)
 # Age and sex by Depressive_symptoms_ever.p
 targetdata %>%
   group_by(KSADS.Depressive_symptoms_ever.p) %>%
-  summarise(mean = mean(interview_age/12),sd=sd(interview_age/12), n = n())
+  summarise(mean = mean(interview_age),sd=sd(interview_age), n = n())
 
 targetdata  %>%
   group_by(KSADS.Depressive_symptoms_ever.p,sex) %>%
   summarise(n = n()) %>%
   mutate(freq = n / sum(n)) %>%
-  .[1:nrow(.)%% 2 == 1,]
+  filter(sex=='M')
 
 # Age and sex by Depressive_symptoms_ever.y  
 targetdata %>%
   group_by(KSADS.Depressive_symptoms_ever.y) %>%
-  summarise(mean = mean(interview_age/12),sd=sd(interview_age/12), n = n())
+  summarise(mean = mean(interview_age),sd=sd(interview_age), n = n())
   
 targetdata  %>%
   group_by(KSADS.Depressive_symptoms_ever.y,sex) %>%
   summarise(n = n()) %>%
   mutate(freq = n / sum(n)) %>%
-  .[1:nrow(.)%% 2 == 0,]
+  filter(sex=='M')
   
   
   
   
-# Randome ---------------------------------------------------------------
+# Random ----------------------------------------------------------------
+# Age and sex by MDD.p
 targetdata %>%
-  group_by(KSADS.MDD.p) %>%
-  summarise(table(KSADS.Depressive_symptoms_ever.p))
+  group_by(is.na(KSADS.MDD.p)) %>%
+  summarise(mean = mean(interview_age),sd=sd(interview_age), n = n())
+
+targetdata  %>%
+  group_by(is.na(KSADS.MDD.p),sex) %>%
+  summarise(n = n()) %>%
+  mutate(freq = n / sum(n)) %>%
+  filter(sex=='M')
+
+# Age and sex by MDD.y
+targetdata %>%
+  group_by(is.na(KSADS.MDD.y)) %>%
+  summarise(mean = mean(interview_age),sd=sd(interview_age), n = n())
+
+targetdata  %>%
+  group_by(is.na(KSADS.MDD.y),sex) %>%
+  summarise(n = n()) %>%
+  mutate(freq = n / sum(n)) %>%
+  filter(sex=='M')
+
+# Age and sex by KSADS.Depressive_symptoms_ever.p
+targetdata %>%
+  group_by(is.na(KSADS.Depressive_symptoms_ever.p)) %>%
+  summarise(mean = mean(interview_age),sd=sd(interview_age), n = n())
+
+targetdata  %>%
+  group_by(is.na(KSADS.Depressive_symptoms_ever.p),sex) %>%
+  summarise(n = n()) %>%
+  mutate(freq = n / sum(n)) %>%
+  filter(sex=='M')
+
+# Age and sex by KSADS.Depressive_symptoms_ever.y
+targetdata %>%
+  group_by(is.na(KSADS.Depressive_symptoms_ever.y)) %>%
+  summarise(mean = mean(interview_age),sd=sd(interview_age), n = n())
+
+targetdata  %>%
+  group_by(is.na(KSADS.Depressive_symptoms_ever.y),sex) %>%
+  summarise(n = n()) %>%
+  mutate(freq = n / sum(n)) %>%
+  filter(sex=='M')

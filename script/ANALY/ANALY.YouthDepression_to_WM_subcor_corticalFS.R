@@ -3,7 +3,7 @@
 library('dplyr')
 library('pbapply')
 library('nlme')
-setwd('/gpfs/igmmfs01/eddie/GenScotDepression/shen/SData/UKB/iv.ABCD/release2.0.1/FamilialRisk_PGRS_MDD')
+setwd('/exports/igmm/eddie/GenScotDepression/shen/ActiveProject/ImagingProject/ABCD_MDD_brain/')
 
 # Load data ---------------------------------------------------------------
 # fam data
@@ -51,7 +51,7 @@ targetdata_longformat <- long_format(targetdata,cols_nonimg,cols_img)
 
 
 # Define functions --------------------------------------------------------
-source('FUNs/reg_phewasStyle.R')
+source('FUNs/reg_phewasStyle_withCI.R')
 
 # Define global vars ------------------------------------------------------
 
@@ -121,8 +121,12 @@ ls.model.region.covWholeB$covs[grep('thk\\.|sa\\.|vol\\.APARC|sulc\\.|vol\\.ASEG
       paste0(ls.model.region.covWholeB$covs[grep('thk\\.|sa\\.|vol\\.APARC|sulc\\.|vol\\.ASEG',ls.model.region.covWholeB$dependent)],'+ICV_ASEG')
 # Analysis ----------------------------------------------------------------
 
-result.YouthDepre.bulk=reg_phewasStyle(ls.model.bulk,dat_short=targetdata,dat_long=dat_long,correctByFactor = T)
+result.YouthDepre.bulk=reg_phewasStyle(ls.model.bulk,dat_short=targetdata,dat_long=dat_long,
+                                       correctByFactor = T)
 #result.YouthDepre.region=reg_phewasStyle(ls.model.region,dat_short=targetdata,dat_long=dat_long,correctByFactor = T)
-result.YouthDepre.region.covWholeB=reg_phewasStyle(ls.model.region.covWholeB,dat_short=targetdata,dat_long=dat_long,correctByFactor = T)
+result.YouthDepre.region.covWholeB=
+  reg_phewasStyle(ls.model.region.covWholeB,
+                  dat_short=targetdata,dat_long=dat_long,correctByFactor = T)
 
-save(result.YouthDepre.bulk,result.YouthDepre.region.covWholeB,file='result/i.Main_result/YouthDepree_WM_subcor_FS_noSocialCov.RData')
+save(result.YouthDepre.bulk,result.YouthDepre.region.covWholeB,
+     file='result/i.Main_result/YouthDepree_WM_subcor_FS_noSocialCov.RData')
